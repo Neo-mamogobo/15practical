@@ -12,7 +12,7 @@ public class Main {
 
             while((line = reader.readLine()) != null){
                 line = line.toLowerCase();
-                line = line.replaceAll("[^a-zA-z']", " ");
+                line = line.replaceAll("[^a-zA-Z']", " ");
                 String[] words = line.split("\\s+");
 
                 for(String word : words){
@@ -42,14 +42,15 @@ public class Main {
             for(String sig : anagram.keySet()){
                 ArrayList<String> list = anagram.get(sig);
                 if(list.size() > 1){
-                    tex.print("\\noin");
+                    tex.print("\\noindent");
 
                     for(String w : list){
                         tex.print(w + " ");
                     }
+                    tex.println("\\\\");
                 }
-                tex.close();
             }
+            tex.close();
         }catch (IOException e){
             System.out.println("Error" + e);
         }
