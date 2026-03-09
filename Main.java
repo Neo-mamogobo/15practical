@@ -2,17 +2,13 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static String Signature(String word){
-        char[] arr = word.toCharArray();
-        Arrays.sort(arr);
-        return new String(arr);
-    }
+
     public static void main(String[] args) {
         HashMap<String, Integer> wordcount = new HashMap<>();
         HashMap<String, ArrayList<String>> anagram = new HashMap<>();
 
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("ulysses.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("joyce1922_ulysses.text"));
             String line;
 
             while((line = reader.readLine()) != null){
