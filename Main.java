@@ -4,7 +4,6 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        HashMap<String, Integer> wordcount = new HashMap<>();
         HashMap<String, ArrayList<String>> anagram = new HashMap<>();
 
         try{
@@ -18,11 +17,7 @@ public class Main {
 
                 for(String word : words){
                     if(word.isEmpty()) continue;
-                    if(wordcount.containsKey(word)){
-                        wordcount.put(word, wordcount.get(word) + 1);
-                    }else {
-                        wordcount.put(word, 1);
-                    }
+
                     String sig = signature(word);
                     if(!anagram.containsKey(sig)){
                         anagram.put(sig, new ArrayList<>());
@@ -41,6 +36,22 @@ public class Main {
             if(list.size() > 1){
                 System.out.println("The anagrams are " + sig + " : " + list);
             }
+        }
+        try{
+            PrintWriter tex = new PrintWriter(new FileWriter("theanagrams.tex"));
+            for(String sig : anagram.keySet()){
+                ArrayList<String> list = anagram.get(sig);
+                if(list.size() > 1){
+                    tex.print("\\noin");
+
+                    for(String w : list){
+                        tex.print(w + " ");
+                    }
+                }
+                tex.close();
+            }
+        }catch (IOException e){
+            System.out.println("Error" + e);
         }
 
     }
