@@ -31,7 +31,19 @@ public class Main {
                     if(!anagram.containsKey(sig)){
                         anagram.put(sig, new ArrayList<>());
                     }
+                    if(!anagram.get(sig).contains(word)){
+                        anagram.get(sig).add(word);
+                    }
                 }
+            }
+            reader.close();
+        }catch (IOException e){
+            System.out.println("Error" + e);
+        }
+        for(String sig : anagram.keySet()){
+            ArrayList<String> list = anagram.get(sig);
+            if(list.size() > 1){
+                System.out.println("The anagrams are " + sig + " : " + list);
             }
         }
 
