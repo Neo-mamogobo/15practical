@@ -42,7 +42,7 @@ public class Main {
             for(String sig : anagram.keySet()){
                 ArrayList<String> list = anagram.get(sig);
                 if(list.size() > 1){
-                    tex.print("\\noindent");
+                    tex.print("\\noindent ");
 
                     for(String w : list){
                         tex.print(w + " ");
